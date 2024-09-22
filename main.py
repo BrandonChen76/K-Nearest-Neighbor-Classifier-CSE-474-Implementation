@@ -34,8 +34,6 @@ for i, row in shuffled_original_data.iterrows():
     else:
         training_data = training_data._append(row, ignore_index=True)
 
-print(testing_data.head(30))
-
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ CHANGE THIS TO CHANGE K in knn +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 K = 50
 
