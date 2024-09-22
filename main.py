@@ -6,8 +6,6 @@ file = pd.ExcelFile('data\DataHW2.xlsx')
 #parse the first/default sheet in the Excel
 file_data = file.parse(file.sheet_names[0])
 
-print(file_data.head())
-
 #first row is not part of the data
 original_data = file_data.iloc[1:]
 
@@ -27,7 +25,7 @@ virginica_versicolor = 0
 virginica_virginica = 0
 
 #randomize the dataframe
-shuffled_original_data = original_data.sample(frac=1, random_state=None)
+shuffled_original_data = original_data.sample(frac=1, random_state=None).reset_index(drop=True)
 
 #split the original into 20:80 testing:training
 for i, row in shuffled_original_data.iterrows():
@@ -36,8 +34,10 @@ for i, row in shuffled_original_data.iterrows():
     else:
         training_data = training_data._append(row, ignore_index=True)
 
+print(testing_data.head(30))
+
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ CHANGE THIS TO CHANGE K in knn +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-K = 15
+K = 50
 
 #start of actual methods
 
